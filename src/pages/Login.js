@@ -5,6 +5,7 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { Redirect, useHistory } from 'react-router-dom';
 import AAuthService from '../components/AuthService';
+import logo from '../assets/img/dbs-logo.png';
 
 const required = (value) => {
 	if (!value) {
@@ -67,13 +68,9 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 	return (
 		<div className='col-md-12'>
 			<div className='card card-container'>
-				<img
-					src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'
-					alt='profile-img'
-					className='profile-img-card'
-					height='20%'
-					width='20%'
-				/>
+				<p>
+					<img src={logo} alt='Logo' width='100' className='dbs-Logo' />
+				</p>
 
 				<Form onSubmit={handleLogin} ref={form}>
 					<div className='form-group'>
