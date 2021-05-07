@@ -64,7 +64,7 @@ function App() {
 					</PrivateRoute>
 
 					<PrivateRoute exact path='/addtransaction'>
-						<AddTransaction accountkey={accountKey} />
+						<AddTransaction isLoggedIn={isLoggedIn} userData={userData} />
 					</PrivateRoute>
 				</div>
 				<Footer />
