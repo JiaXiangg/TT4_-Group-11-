@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function TransactionHist(props) {
-  const { accountKey, custID } = props;
+  const { userData } = props;
+  const { accountKey, custID } = userData;
+  
   const [transactionHist, setTransactionHist] = useState([]);
   const apiLink =
     "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view";

@@ -22,9 +22,6 @@ const login = (username, password) => {
 
     return response.data;
     })
-    .catch((err) => {
-      console.log("ERROR: ====", err);
-    });
       
 };
 

@@ -6,6 +6,7 @@ import CheckButton from "react-validation/build/button";
 import { Redirect, useHistory } from 'react-router-dom';
 import AAuthService from "../components/AuthService";
 
+
 const required = (value) => {
 	if(!value) {
 		return (
@@ -46,6 +47,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
         setUserData(AuthService.getCurrentUser());
         setisLoggedIn(true);
         AAuthService.authenticate();
+
 
         history.replace("/home");
       },
