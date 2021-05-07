@@ -55,7 +55,6 @@ function App() {
 					</Route>
 
 					{/* <PrivateRoute exact path = '/viewaccountdetails'>
->>>>>>> origin
               <ViewAccountDetails accountkey ={ accountKey }/>
             </PrivateRoute>
             */}

@@ -22,8 +22,8 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 	const checkBtn = useRef();
 	const history = useHistory();
 
-	const [username, setUsername] = useState('Group11');
-	const [password, setPassword] = useState('cDAbas6YBrBlhYI');
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState('');
 
