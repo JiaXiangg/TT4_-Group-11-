@@ -1,5 +1,3 @@
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import './App.css';
 import React, { useState } from 'react';
 import {
@@ -12,6 +10,8 @@ import { Link } from 'react-router-dom';
 import makeAddTransactionRequest from './components/AddTransaction';
 import AuthService from './components/AuthService';
 import PrivateRoute from './components/PrivateRouter';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
@@ -30,7 +30,7 @@ function App() {
 		setisLoggedIn(false);
 	};
 	return (
-		<div>
+		<div style={{ minHeight: '100vh' }}>
 			<Router>
 				<Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn} />
 				<div>
@@ -53,6 +53,7 @@ function App() {
 					</Route>
 
 					{/* <PrivateRoute exact path = '/viewaccountdetails'>
+>>>>>>> origin
               <ViewAccountDetails accountkey ={ accountKey }/>
             </PrivateRoute>
             */}

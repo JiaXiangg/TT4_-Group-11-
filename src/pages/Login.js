@@ -65,14 +65,14 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 	};
 
 	return (
-		<div className='col-md-12' style={{ minHeight: '50vh' }}>
+		<div className='col-md-12'>
 			<div className='card card-container'>
 				<img
 					src='//ssl.gstatic.com/accounts/ui/avatar_2x.png'
 					alt='profile-img'
 					className='profile-img-card'
-					height='10%'
-					width='10%'
+					height='20%'
+					width='20%'
 				/>
 
 				<Form onSubmit={handleLogin} ref={form}>
@@ -112,7 +112,10 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 					{message && (
 						<div className='form-group'>
 							<div className='alert alert-danger' role='alert'>
-								Credentials provided are invalid
+								<h3 style={{ color: 'red' }}>
+									{' '}
+									Credentials provided are invalid{' '}
+								</h3>
 							</div>
 						</div>
 					)}
