@@ -32,6 +32,7 @@ function App() {
 	return (
 		<div>
 			<Router>
+				<Navbar />
 				<div>
 					<Route exact path='/home'>
 						<Home
@@ -64,6 +65,7 @@ function App() {
 						<AddTransaction accountkey={accountKey} />
 					</PrivateRoute>
 				</div>
+				<Footer />
 			</Router>
 		</div>
 	);
