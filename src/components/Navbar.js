@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import dbsLogo from '../assets/img/dbs-logo.png';
 
 function Nav({ isLoggedIn }) {
+	document.getElementById('root').style.minHeight = '100vh';
 	let menu;
 	if (isLoggedIn) {
 		menu = (
 			<div>
 				<ul className='navbar-nav me-auto mb-2 mb-md-0'>
 					<li>
-						<Link to='/logout' className='nav-link active'>
+						<Link to='/addtransaction' className='nav-link active'>
 							Add Transaction
 						</Link>
 					</li>
@@ -21,6 +22,11 @@ function Nav({ isLoggedIn }) {
 					<li className='nav-item'>
 						<Link to='/viewaccountdetails' className='nav-link active'>
 							View Account
+						</Link>
+					</li>
+					<li className='nav-item'>
+						<Link to='/logout' className='nav-link active'>
+							Logout
 						</Link>
 					</li>
 				</ul>
