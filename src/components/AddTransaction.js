@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 
+
 const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
 	const [payeeID, setpayeeID] = useState();
@@ -37,9 +38,9 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
 	}
 
-	useEffect(() => {
+	const onSubmit = () =>{
 		makeAddTransactionRequest();
-	},[])
+	}
 
 	const payeeIDHandler = (e) =>{
 		setpayeeID(e);
@@ -61,6 +62,7 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 	return(
 
 		<div>
+
 			<form>	
 				<div>
 					<label>Payee ID: </label>
@@ -99,6 +101,11 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 						onClick = {() => settranscationEGift(!transcationEGift)}> {transcationEGift? "YES" : "SELL"}
 					</button>
 				</div>
+
+				<div>
+					<button type = "submit" onClick={onSubmit}>Submit Request</button>
+				</div>
+				
 			</form>
 		</div>
 		)	
