@@ -37,7 +37,7 @@ function Nav({ isLoggedIn, setisLoggedIn }) {
 					</li>
 					<button
 						className='btn btn-primary btn-block'
-						onClick={handleLogout}
+						onClick={() => setisLoggedIn(false)}
 					>
 						Log Out
 					</button>
