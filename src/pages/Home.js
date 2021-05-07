@@ -26,7 +26,7 @@ const Home = ({ isLoggedIn, onSubmitSignOut, userData, setUserData }) => {
           </ul>
         </div>
       ) : (
-        <Redirect to="/login" />
+        <Redirect to="/" />
       )}
     </div>
   );
