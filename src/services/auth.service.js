@@ -4,22 +4,18 @@ const API_URL = "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/tec
 
 
 const login = (username, password) => {
-
   return axios.post(API_URL + "login", {
     userName:username,
     userPass:password
   },
   {
     headers: {
-      "x-api-key": "dONTGMAVVY8v9A85C3Vs7x7id9yvfXB7dn2Idmj5",
+      "x-api-key": process.env.REACT_APP_API_KEY,
     },
   }
   )
   .then((response) => {
-
-      console.log(response.data)
       localStorage.setItem("user", JSON.stringify(response.data));
-
     return response.data;
     })
       

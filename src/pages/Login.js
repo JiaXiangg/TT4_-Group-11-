@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+const jwt = require("jsonwebtoken");
 
 const required = (value) => {
 	if(!value) {
@@ -17,13 +18,58 @@ const required = (value) => {
 
 const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
   const form = useRef();
-	const checkBtn = useRef();
   const history = useHistory();
 
   const [username, setUsername] = useState("Group11");
 	const [password, setPassword] = useState("cDAbas6YBrBlhYI");
+  const [remember, setRemember] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState("");
+
+  useEffect (()=>{
+    if(isLoggedIn)
+      return;
+
+    let token = localStorage.getItem("jwttoken");
+
+    if(!token)
+    {
+      console.log("no token")
+      return;
+    }
+
+    jwt.verify(token, process.env.REACT_APP_API_KEY, (err, decoded) => {
+      if(err) {
+        console.log("Failed to authorized jwt token! " + err)
+          return;
+      }
+      console.log("verified jwt token")
+      console.log(decoded)
+      AuthService.login(decoded.username, decoded.password).then(
+        () => {
+          setUserData(AuthService.getCurrentUser());
+
+          setisLoggedIn(true);
+          history.replace("/home");
+        },
+        (error) => {
+          const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString();
+          
+          setLoading(false);
+          setMessage(resMessage);
+        }
+      )
+
+      localStorage.setItem("user", JSON.stringify(decoded));
+      setUserData(decoded);
+    });
+
+  },[])
 
   const onChangeUsername = (e) => {
 		setUsername(e.target.value);
@@ -41,10 +87,20 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
 
     AuthService.login(username, password).then(
       () => {
-        // Suppose to swap to user details page
         setUserData(AuthService.getCurrentUser());
-        setisLoggedIn(true);
 
+        if(remember)
+        {
+          let token = jwt.sign({username: username, password: password}, process.env.REACT_APP_API_KEY, {
+            expiresIn: 10
+          });
+  
+          localStorage.setItem("jwttoken", token);
+  
+          console.log("Saved: " + token)
+        }
+
+        setisLoggedIn(true);
         history.replace("/home");
       },
       (error) => {
@@ -55,7 +111,6 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
           error.message ||
           error.toString();
         
-        console.log("failed")
         setLoading(false);
         setMessage(resMessage);
       }
@@ -109,6 +164,12 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
                                 </button>
                               </div>
 
+                              <div>
+                                <input type="checkbox" onChange={() => setRemember(!remember)}></input>
+                                Remember me
+                              </div>
+
+
                               {message && (
                                 <div className="form-group">
                                   <div className="alert alert-danger" role="alert">
@@ -116,8 +177,6 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
                                   </div>
                                 </div>
                               )}
-
-                              <CheckButton style={{display: "none"}} ref={checkBtn}/>
                             </Form>
                           </div>
                         </div>) 
