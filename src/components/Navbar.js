@@ -4,14 +4,23 @@ import dbsLogo from '../assets/img/dbs-logo.png';
 
 function Nav({ isLoggedIn }) {
 	let menu;
-
 	if (isLoggedIn) {
 		menu = (
 			<div>
 				<ul className='navbar-nav me-auto mb-2 mb-md-0'>
-					<li className='nav-item'>
+					<li>
 						<Link to='/logout' className='nav-link active'>
-							Logout
+							Add Transaction
+						</Link>
+					</li>
+					<li>
+						<Link to='/viewtransactiondetails' className='nav-link active'>
+							View Transactions
+						</Link>
+					</li>
+					<li className='nav-item'>
+						<Link to='/viewaccountdetails' className='nav-link active'>
+							View Account
 						</Link>
 					</li>
 				</ul>
