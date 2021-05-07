@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import AuthService from '../services/auth.service';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
 import { Redirect, useHistory } from 'react-router-dom';
 import AAuthService from '../components/AuthService';
 import logo from '../assets/img/dbs-logo.png';
-
 const jwt = require("jsonwebtoken");
 
 const required = (value) => {
@@ -20,13 +20,13 @@ const required = (value) => {
 
 const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 	const form = useRef();
-	const history = useHistory();
+  const history = useHistory();
 
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("Group11");
+	const [password, setPassword] = useState("cDAbas6YBrBlhYI");
   const [remember, setRemember] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const [message, setMessage] = useState('');
+	const [message, setMessage] = useState("");
 
   useEffect (()=>{
     if(isLoggedIn)
@@ -50,7 +50,7 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
       AuthService.login(decoded.username, decoded.password).then(
         () => {
           setUserData(AuthService.getCurrentUser());
-
+          AAuthService.authenticate();
           setisLoggedIn(true);
           history.replace("/home");
         },
@@ -73,15 +73,15 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 
   },[])
 
-	const onChangeUsername = (e) => {
+  const onChangeUsername = (e) => {
 		setUsername(e.target.value);
-	};
+	}
 
 	const onChangePassword = (e) => {
 		setPassword(e.target.value);
-	};
+	}
 
-	const handleLogin = (e) => {
+  const handleLogin = (e) => {
 		e.preventDefault();
 
     setMessage("");
@@ -90,7 +90,7 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
     AuthService.login(username, password).then(
       () => {
         setUserData(AuthService.getCurrentUser());
-
+        AAuthService.authenticate();
         if(remember)
         {
           let token = jwt.sign({username: username, password: password}, process.env.REACT_APP_API_KEY, {
@@ -152,14 +152,15 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
 						/>
 					</div>
 
-          <div className="form-group">
-                                <button className="btn btn-primary btn-block" disabled={loading}>
-                                  {loading && (
-                                    <span className="spinner-border spinner-border-sm"></span>
-                                  )}
-                                  <span>Login</span>
-                                </button>
-                              </div>
+					<div className='form-group'>
+						<button className='btn btn-primary btn-block' disabled={loading}>
+							{loading && (
+								<span className='spinner-border spinner-border-sm'></span>
+							)}
+							<span>Login</span>
+						</button>
+					</div>
+
           <div>
             <input type="checkbox" onChange={() => setRemember(!remember)}></input>
             Remember me
