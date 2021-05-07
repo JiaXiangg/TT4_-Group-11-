@@ -1,12 +1,44 @@
-import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
+import React, { useState } from "react";
 
 import AuthService from "../services/auth.service";
 
 const Login = (props) => {
+  const [username, setUsername] = useState("Group11");
+	const [password, setPassword] = useState("cDAbas6YBrBlhYI");
+	const [loading, setLoading] = useState(false);
+	const [message, setMessage] = useState("");
+
+  const onChangeUsername = (e) => {
+		setUsername(e.target.value);
+	}
+
+	const onChangePassword = (e) => {
+		setPassword(e.target.value);
+	}
+
+  const handleLogin = (e) => {
+		e.preventDefault();
+  }
+
   return (
-    <div>Login GUI</div>
+    <div className="App">
+      <form onSubmit={handleLogin}>
+        <div>
+          <label>
+            Username:
+            <input type="text" name="username" value={username} onChange={onChangeUsername}/>
+          </label>
+        </div>
+        <div>
+          <label>
+            Password:
+            <input type="password" name="password" value={password} onChange={onChangePassword}/>
+          </label>
+        </div>
+        <input type="submit" value="Submit"/>
+      </form>
+    </div>
   )
 }
+
+export default Login;
