@@ -31,7 +31,7 @@ function App(){
               <Home isLoggedIn = { isLoggedIn } onSubmitSignOut = { onSubmitSignOut }  userData ={userData} setUserData={setUserData}/>
             </Route>
 
-            <Route exact path = '/login'>
+            <Route exact path = '/'>
               <Login isLoggedIn = { isLoggedIn } setisLoggedIn = { setisLoggedIn } userData ={userData} setUserData={setUserData}/>
             </Route>
 
