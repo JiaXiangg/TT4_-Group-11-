@@ -4,6 +4,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { Redirect, useHistory } from 'react-router-dom';
+import AAuthService from "../components/AuthService";
+
 
 const required = (value) => {
 	if(!value) {
@@ -44,6 +46,8 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
         // Suppose to swap to user details page
         setUserData(AuthService.getCurrentUser());
         setisLoggedIn(true);
+        AAuthService.authenticate();
+
 
         history.replace("/home");
       },
