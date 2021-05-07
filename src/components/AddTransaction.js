@@ -14,7 +14,7 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
 	const axios = require("axios");
 
-	async function = makeAddTransactionRequest() {
+	async function makeAddTransactionRequest() {
 
 		const config = {
 			method : "post",
