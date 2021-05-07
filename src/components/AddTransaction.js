@@ -16,7 +16,7 @@ const AddTransaction = ({ isLoggedIn, accountKey, userData }) => {
 			method: 'post',
 			url:
 				'https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add',
-			headers: { 'x-api-key': 'dONTGMAVVY8v9A85C3Vs7x7id9yvfXB7dn2Idmj5' },
+			headers: { 'x-api-key': process.env.REACT_APP_API_KEY },
 			data: JSON.stringify({
 				custID: parseInt(userData.custID),
 				accountKey: userData.accountKey,
