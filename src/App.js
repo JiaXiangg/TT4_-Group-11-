@@ -14,6 +14,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import AboutUs from './pages/AboutUs';
 import Home from './pages/Home';
 import AddTransaction from './components/AddTransaction';
 import TransactionHist from './pages/TransactionHist';
@@ -42,6 +43,7 @@ function App() {
 							setUserData={setUserData}
 						/>
 					</Route>
+					<Route exact path='/aboutus' component={AboutUs} />
 
 					<Route exact path='/'>
 						<Login

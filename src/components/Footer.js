@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	document.getElementById('root').style.minHeight = '100vh';
@@ -24,24 +25,9 @@ const Footer = () => {
 
 						<ul class='list-unstyled'>
 							<li>
-								<a href='#!' class='text-dark'>
-									Link 1
-								</a>
-							</li>
-							<li>
-								<a href='#!' class='text-dark'>
-									Link 2
-								</a>
-							</li>
-							<li>
-								<a href='#!' class='text-dark'>
-									Link 3
-								</a>
-							</li>
-							<li>
-								<a href='#!' class='text-dark'>
-									Link 4
-								</a>
+								<Link to='/aboutus' className='text-dark'>
+									About Us
+								</Link>
 							</li>
 						</ul>
 					</div>
