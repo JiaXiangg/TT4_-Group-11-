@@ -6,7 +6,7 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
 	const [payeeID, setpayeeID] = useState();
 	const [transactionsAmount, settransactionAmount] = useState();
-	const [transcationEGift, settranscationEGift] = useState();
+	const [transcationEGift, settranscationEGift] = useState(false);
 	const [transactionMessage, settransactionMessage] = useState();
 	const [statusCode, setstatusCode] = useState();
 	const [message, setmessage] = useState();
@@ -14,19 +14,19 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
 	const axios = require("axios");
 
-	async function = makeAddTransactionRequest() {
+	async function makeAddTransactionRequest() {
 
 		const config = {
 			method : "post",
 			url : "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add",
 			headers: {"x-api-key": "dONTGMAVVY8v9A85C3Vs7x7id9yvfXB7dn2Idmj5"},
 			data : JSON.stringify({
-				custID : custID
-				accountKey : accountKey
-				payeeID : payeeID
-				amount : transactionsAmount
-				eGift : transcationEGift
-				message : transactionMessage
+				custID : custID,
+				accountKey : accountKey,
+				payeeID : payeeID,
+				amount : transactionsAmount,
+				eGift : transcationEGift,
+				message : transactionMessage,
 			}),
 
 		};
@@ -41,14 +41,14 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 		makeAddTransactionRequest();
 	},[])
 
+	const payeeIDHandler = (e) =>{
+		setpayeeID(e);
+	}
 
 	const transactionsAmountHandler = (e) =>{
 		settransactionAmount(e);
 	}
 
-	const transcationEGiftHandler = (e) =>{
-		settransactionAmount(e);
-	}
 
 	const transactionMessageHandler = (e) =>{
 		settransactionMessage(e);
@@ -63,6 +63,16 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 		<div>
 			<form>
 			<div>
+				<label>Payee ID: </label>
+				<input 
+					type = "text"
+					placeholder = "Please Enter the Payee ID"
+					value = {payeeID}
+					onChange = {(e) => setpayeeID(e.target.value)}
+				/>
+			</div>
+
+			<div>
 				<label>Transaction Amount: </label>
 				<input 
 					type = "text"
@@ -72,6 +82,25 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 				/>
 			</div>
 
+
+			<div>
+				<label>Transaction Amount: </label>
+				<input 
+					type = "text"
+					placeholder = "Please Enter the your Message"
+					value = {transactionMessage}
+					onChange = {(e) => transactionMessageHandler(e.target.value)}
+				/>
+			</div>
+
+			<div>
+				<label>Transaction E: </label>
+				<button 
+					onClick = {() => settranscationEGift(!transcationEGift)}> {transcationEGift? "YES" : "SELL"}
+				>
+				</button>
+				
+			</div>
 		)
 
 	
