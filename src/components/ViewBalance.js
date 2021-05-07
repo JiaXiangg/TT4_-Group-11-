@@ -5,11 +5,10 @@ function ViewBalance() {
         <div>
             <table className = "view-balance">
                 <tr>
-                    <th>Transaction Balance</th>
-                    <th>Currency Type</th>
+                    <th>Balance Amount ($)</th>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>test</td>
                 </tr>
             </table>
         </div>

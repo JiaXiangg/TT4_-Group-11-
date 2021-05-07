@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import ViewBalance from "./components/ViewBalance"
+
 function App() {
   return (
     <div className="App">
