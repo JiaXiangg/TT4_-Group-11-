@@ -61,7 +61,7 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 	return(
 
 		<div>
-			<form>
+			<form>	
 				<div>
 					<label>Payee ID: </label>
 					<input 
@@ -102,6 +102,7 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 			</form>
 		</div>
 		)	
+
 }
 
 export default AddTransaction;
