@@ -54,10 +54,6 @@ function App(){
         </Router>
     
 
-{/*       {isLoggedIn ? ( 
-          <UserInformation isLoggedIn = {isLoggedIn} accountkey ={accountKey} setaccountKey={setaccountKey} />
-          ) : (
-          <p>Please Log in</p> ) }*/}
       </div>
 
     )
