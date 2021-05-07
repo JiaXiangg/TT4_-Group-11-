@@ -7,21 +7,6 @@ const Home = ({ isLoggedIn, onSubmitSignOut, userData, setUserData }) => {
 			{isLoggedIn ? (
 				<div>
 					<h2>Welcome to E-Wallet</h2>
-					<ul>
-						<li>
-							<Link to='/home'>Home</Link>
-						</li>
-						<li>
-							<Link to='/viewaccountdetails'>View Account Details</Link>
-						</li>
-						<li>
-							<Link to='/viewtransactiondetails'>View Transaction Details</Link>
-						</li>
-						<li>
-							<Link to='/addtransaction'>Add Transaction </Link>
-						</li>
-					</ul>
-
 					<div className='container'>
 						<header className='jumbotron'>
 							<h4>Profile Details</h4>

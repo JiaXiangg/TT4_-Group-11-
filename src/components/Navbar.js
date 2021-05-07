@@ -5,10 +5,21 @@ import dbsLogo from '../assets/img/dbs-logo.png';
 function Nav({ isLoggedIn, setisLoggedIn }) {
 	document.getElementById('root').style.minHeight = '100vh';
 	let menu;
+
+	const handleLogout = () => {
+		localStorage.clear();
+		setisLoggedIn(false);
+	}
+
 	if (isLoggedIn) {
 		menu = (
 			<div>
 				<ul className='navbar-nav me-auto mb-2 mb-md-0'>
+					<li>
+						<Link to='/home' className='nav-link active'>
+							Home
+						</Link>
+					</li>
 					<li>
 						<Link to='/addtransaction' className='nav-link active'>
 							Add Transaction
@@ -21,12 +32,12 @@ function Nav({ isLoggedIn, setisLoggedIn }) {
 					</li>
 					<li className='nav-item'>
 						<Link to='/viewaccountdetails' className='nav-link active'>
-							View Account
+							View Balance
 						</Link>
 					</li>
 					<button
 						className='btn btn-primary btn-block'
-						onClick={() => setisLoggedIn(false)}
+						onClick={handleLogout}
 					>
 						Log Out
 					</button>
@@ -37,16 +48,6 @@ function Nav({ isLoggedIn, setisLoggedIn }) {
 		menu = (
 			<div>
 				<ul className='navbar-nav me-auto mb-2 mb-md-0'>
-					<li className='nav-item'>
-						<Link to='/login' className='nav-link active'>
-							Login
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link to='/register' className='nav-link active'>
-							Register
-						</Link>
-					</li>
 				</ul>
 			</div>
 		);

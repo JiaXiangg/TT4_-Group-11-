@@ -13,7 +13,7 @@ const login = (username, password) => {
 			},
 			{
 				headers: {
-					'x-api-key': 'dONTGMAVVY8v9A85C3Vs7x7id9yvfXB7dn2Idmj5',
+					'x-api-key': process.env.REACT_APP_API_KEY,
 				},
 			}
 		)
