@@ -54,7 +54,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
           error.response.data.message) ||
           error.message ||
           error.toString();
-        
+
         console.log("failed")
         setLoading(false);
         setMessage(resMessage);
@@ -77,7 +77,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
 						<label htmlFor="username">
 							Username
 						</label>
-						<Input 
+						<Input
 							type="text"
 							className="form-control"
 							name="username"
@@ -91,7 +91,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
 						<label htmlFor="password">
 							Password
 						</label>
-						<Input 
+						<Input
 							type="password"
 							className="form-control"
 							name="password"
@@ -100,7 +100,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
 							validations={[required]}
 						/>
 					</div>
-					
+
 					<div className="form-group">
 						<button className="btn btn-primary btn-block" disabled={loading}>
 							{loading && (
@@ -113,7 +113,7 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
 					{message && (
 						<div className="form-group">
 							<div className="alert alert-danger" role="alert">
-								Credentials provided are invalid
+								<h3 style= {{color: "red"}}> Credentials provided are invalid </h3>
 							</div>
 						</div>
 					)}
