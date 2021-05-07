@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import dbsLogo from '../assets/img/dbs-logo.png';
 
 function Nav() {
 	return (
 		<nav className='navbar navbar-expand-md navbar-dark bg-dark mb-4'>
 			<div className='container-fluid'>
 				<Link to='/' className='navbar-brand'>
-					Home
+					<img src={dbsLogo} alt='dbs-logo' style={{ height: '2rem' }} />
 				</Link>
 
 				<div>
