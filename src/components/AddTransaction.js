@@ -61,51 +61,48 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 	return(
 
 		<div>
-			<form>
-			<div>
-				<label>Payee ID: </label>
-				<input 
-					type = "text"
-					placeholder = "Please Enter the Payee ID"
-					value = {payeeID}
-					onChange = {(e) => setpayeeID(e.target.value)}
-				/>
-			</div>
+			<form>	
+				<div>
+					<label>Payee ID: </label>
+					<input 
+						type = "text"
+						placeholder = "Please Enter the Payee ID"
+						value = {payeeID}
+						onChange = {(e) => setpayeeID(e.target.value)}
+					/>
+				</div>
 
-			<div>
-				<label>Transaction Amount: </label>
-				<input 
-					type = "text"
-					placeholder = "Please Enter the Transaction Amount"
-					value = {transactionsAmount}
-					onChange = {(e) => transactionsAmountHandler(e.target.value)}
-				/>
-			</div>
+				<div>
+					<label>Transaction Amount: </label>
+					<input 
+						type = "text"
+						placeholder = "Please Enter the Transaction Amount"
+						value = {transactionsAmount}
+						onChange = {(e) => transactionsAmountHandler(e.target.value)}
+					/>
+				</div>
 
 
-			<div>
-				<label>Transaction Amount: </label>
-				<input 
-					type = "text"
-					placeholder = "Please Enter the your Message"
-					value = {transactionMessage}
-					onChange = {(e) => transactionMessageHandler(e.target.value)}
-				/>
-			</div>
+				<div>
+					<label>Transaction Amount: </label>
+					<input 
+						type = "text"
+						placeholder = "Please Enter the your Message"
+						value = {transactionMessage}
+						onChange = {(e) => transactionMessageHandler(e.target.value)}
+					/>
+				</div>
 
-			<div>
-				<label>Transaction E: </label>
-				<button 
-					onClick = {() => settranscationEGift(!transcationEGift)}> {transcationEGift? "YES" : "SELL"}
-				>
-				</button>
-				
-			</div>
-
+				<div>
+					<label>Transaction E: </label>
+					<button 
+						onClick = {() => settranscationEGift(!transcationEGift)}> {transcationEGift? "YES" : "SELL"}
+					</button>
+				</div>
 			</form>
-
 		</div>
-		)
+		)	
 
-	
 }
+
+export default AddTransaction;
