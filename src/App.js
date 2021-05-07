@@ -4,7 +4,13 @@ import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router
 import { Link } from 'react-router-dom';
 import makeAddTransactionRequest from './components/AddTransaction'
 import AuthService from './components/AuthService'
-import PrivateRoute from './PrivateRouter'
+import PrivateRoute from './components/PrivateRouter'
+import Login from './pages/Login'
+import Profile from './pages/Profile'
+import Home from './pages/Home'
+import AddTransaction from './components/AddTransaction'
+// import ViewTransactionDetails from './components/AddTransaction'
+// import ViewAccountDetails from './components/AddTransaction'
 
 function App(){
 
@@ -16,10 +22,7 @@ function App(){
     e.preventDefault();
     setisLoggedIn(false)
   }
-
-
     return(
-
       <div>
         <Router>
           <div>
@@ -39,14 +42,14 @@ function App(){
               <Login isLoggedIn = { isLoggedIn } setisLoggedIn = { setisLoggedIn } />
             </Route>
 
-            <PrivateRoute exact path = '/viewaccountdetails'>
+            {/* <PrivateRoute exact path = '/viewaccountdetails'>
               <ViewAccountDetails accountkey ={ accountKey }/>
             </PrivateRoute>
 
 
             <PrivateRoute exact path = '/viewtransactiondetails'>
               <ViewTransactionDetails accountkey ={ accountKey }/>
-            </PrivateRoute>
+            </PrivateRoute> */}
 
 
             <PrivateRoute exact path = '/addtransaction'>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const Profile = (props) => {
+const Home = (props) => {
   return (
   <div>
-    Profile
+    Home
   </div>)
 }
 
-export default Profile;
+export default Home;
