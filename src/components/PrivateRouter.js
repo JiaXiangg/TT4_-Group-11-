@@ -7,7 +7,7 @@ function PrivateRoute({ children, ...rest}){
 		<Route {...rest} render ={() => {
 			return AuthService.isAuthenticated === true
 				? children
-				: <Redirect to='/login'/>
+				: <Redirect to='/'/>
 				}} />
 				)
 }  

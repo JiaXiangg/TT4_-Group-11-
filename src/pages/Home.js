@@ -12,9 +12,6 @@ const Home = ({ isLoggedIn, onSubmitSignOut, userData, setUserData }) => {
               <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
               <Link to="/viewaccountdetails">View Account Details</Link>
             </li>
             <li>
