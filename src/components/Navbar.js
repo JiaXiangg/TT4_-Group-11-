@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AuthService from "./AuthService";
 import dbsLogo from '../assets/img/dbs-logo.png';
 
 function Nav({ isLoggedIn, setisLoggedIn }) {
@@ -8,6 +9,7 @@ function Nav({ isLoggedIn, setisLoggedIn }) {
 
 	const handleLogout = () => {
 		localStorage.clear();
+		AuthService.signout();
 		setisLoggedIn(false);
 	}
 
@@ -37,7 +39,7 @@ function Nav({ isLoggedIn, setisLoggedIn }) {
 					</li>
 					<button
 						className='btn btn-primary btn-block'
-						onClick={() => setisLoggedIn(false)}
+						onClick={handleLogout}
 					>
 						Log Out
 					</button>

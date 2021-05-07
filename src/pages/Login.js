@@ -94,7 +94,7 @@ const Login = ({ isLoggedIn, setisLoggedIn, userData, setUserData }) => {
         if(remember)
         {
           let token = jwt.sign({username: username, password: password}, process.env.REACT_APP_API_KEY, {
-            expiresIn: 10
+            expiresIn: 999
           });
   
           localStorage.setItem("jwttoken", token);
