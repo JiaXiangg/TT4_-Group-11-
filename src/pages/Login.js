@@ -3,7 +3,7 @@ import AuthService from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 const required = (value) => {
 	if(!value) {
@@ -18,6 +18,7 @@ const required = (value) => {
 const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
   const form = useRef();
 	const checkBtn = useRef();
+  const history = useHistory();
 
   const [username, setUsername] = useState("Group11");
 	const [password, setPassword] = useState("cDAbas6YBrBlhYI");
@@ -41,10 +42,10 @@ const Login = ({isLoggedIn, setisLoggedIn, userData, setUserData}) => {
     AuthService.login(username, password).then(
       () => {
         // Suppose to swap to user details page
-        // props.history.push("/profile");
-			  // window.location.reload();
         setUserData(AuthService.getCurrentUser());
         setisLoggedIn(true);
+
+        history.replace("/home");
       },
       (error) => {
         const resMessage =
