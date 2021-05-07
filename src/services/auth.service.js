@@ -16,9 +16,10 @@ const login = (username, password) => {
   }
   )
   .then((response) => {
-    if(response.data.accessToken) {
-        console.log(response.data)
-    }
+
+      console.log(response.data)
+      localStorage.setItem("user", JSON.stringify(response.data));
+
     return response.data;
     })
     .catch((err) => {
@@ -27,7 +28,12 @@ const login = (username, password) => {
       
 };
 
+const getCurrentUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
+
 export default {
+  getCurrentUser,
   login,
 };
 
