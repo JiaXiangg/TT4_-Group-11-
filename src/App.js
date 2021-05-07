@@ -32,7 +32,7 @@ function App() {
 	return (
 		<div>
 			<Router>
-				<Navbar isLoggedIn={isLoggedIn} />
+				<Navbar isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn} />
 				<div>
 					<Route exact path='/home'>
 						<Home

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import dbsLogo from '../assets/img/dbs-logo.png';
 
-function Nav({ isLoggedIn }) {
+function Nav({ isLoggedIn, setisLoggedIn }) {
 	document.getElementById('root').style.minHeight = '100vh';
 	let menu;
 	if (isLoggedIn) {
@@ -24,11 +24,12 @@ function Nav({ isLoggedIn }) {
 							View Account
 						</Link>
 					</li>
-					<li className='nav-item'>
-						<Link to='/logout' className='nav-link active'>
-							Logout
-						</Link>
-					</li>
+					<button
+						className='btn btn-primary btn-block'
+						onClick={() => setisLoggedIn(false)}
+					>
+						Log Out
+					</button>
 				</ul>
 			</div>
 		);
