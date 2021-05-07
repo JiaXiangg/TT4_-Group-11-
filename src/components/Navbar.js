@@ -4,7 +4,7 @@ import dbsLogo from '../assets/img/dbs-logo.png';
 
 function Nav() {
 	return (
-		<nav className='navbar navbar-expand-md navbar-dark bg-dark mb-4'>
+		<nav className='navbar navbar-expand-md navbar-light bg-light mb-4'>
 			<div className='container-fluid'>
 				<Link to='/' className='navbar-brand'>
 					<img src={dbsLogo} alt='dbs-logo' style={{ height: '2rem' }} />
