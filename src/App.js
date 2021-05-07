@@ -9,11 +9,10 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Home from './pages/Home'
 import AddTransaction from './components/AddTransaction'
-// import ViewTransactionDetails from './components/AddTransaction'
+import TransactionHist from './pages/TransactionHist';
 // import ViewAccountDetails from './components/AddTransaction'
 
 function App(){
-
   const [userData, setUserData] = useState("");
   const [accountKey, setaccountKey] = useState("");
   const [isLoggedIn, setisLoggedIn] = useState(false);
@@ -46,11 +45,11 @@ function App(){
             {/* <PrivateRoute exact path = '/viewaccountdetails'>
               <ViewAccountDetails accountkey ={ accountKey }/>
             </PrivateRoute>
-
+            */}
 
             <PrivateRoute exact path = '/viewtransactiondetails'>
-              <ViewTransactionDetails accountkey ={ accountKey }/>
-            </PrivateRoute> */}
+              <TransactionHist accountkey ={ accountKey } custID={custID} />
+            </PrivateRoute>
 
 
             <PrivateRoute exact path = '/addtransaction'>
