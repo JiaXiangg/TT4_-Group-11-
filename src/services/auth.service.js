@@ -33,18 +33,3 @@ export default {
   getCurrentUser,
   login,
 };
-
-/*
-{phoneNumber: "(+65) 81920299", accountKey: "fkgmcqt3-hd0i-jn6c-p53w-cmrpjatko8g", custID: 11, lastName: "Thorton", address: "2842 Hurley Rapid↵Nathanstad, ID 04292", …}
-accountKey: "fkgmcqt3-hd0i-jn6c-p53w-cmrpjatko8g"
-address: "2842 Hurley Rapid\nNathanstad, ID 04292"
-age: 76
-custID: 11
-email: "peggy@gmail.com"
-firstName: "Peggy"
-gender: "Female"
-lastName: "Thorton"
-nric: "S4584837H"
-phoneNumber: "(+65) 81920299"
-__proto__: Object
-*/
