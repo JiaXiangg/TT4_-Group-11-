@@ -101,6 +101,10 @@ const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 				</button>
 				
 			</div>
+
+			</form>
+
+		</div>
 		)
 
 	
