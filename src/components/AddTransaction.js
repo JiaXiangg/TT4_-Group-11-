@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const AddTransaction = ({isLoggedIn, accountKey}) =>{
+const AddTransaction = ({isLoggedIn, accountKey, custID }) =>{
 
-	const [transcationLog settransactionLog] = useState([])
+	const [payeeID, setpayeeID] = useState();
 	const [transactionsAmount, settransactionAmount] = useState();
 	const [transcationEGift, settranscationEGift] = useState();
 	const [transactionMessage, settransactionMessage] = useState();
-	const [phoneNumber, setphoneNumber] = useState();
 	const [statusCode, setstatusCode] = useState();
 	const [message, setmessage] = useState();
 
@@ -38,7 +37,42 @@ const AddTransaction = ({isLoggedIn, accountKey}) =>{
 
 	}
 
-	
+	useEffect(() => {
+		makeAddTransactionRequest();
+	},[])
+
+
+	const transactionsAmountHandler = (e) =>{
+		settransactionAmount(e);
+	}
+
+	const transcationEGiftHandler = (e) =>{
+		settransactionAmount(e);
+	}
+
+	const transactionMessageHandler = (e) =>{
+		settransactionMessage(e);
+	}
+
+
+
+
+
+	return(
+
+		<div>
+			<form>
+			<div>
+				<label>Transaction Amount: </label>
+				<input 
+					type = "text"
+					placeholder = "Please Enter the Transaction Amount"
+					value = {transactionsAmount}
+					onChange = {(e) => transactionsAmountHandler(e.target.value)}
+				/>
+			</div>
+
+		)
 
 	
 }
