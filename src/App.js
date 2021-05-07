@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
@@ -8,6 +9,7 @@ function App() {
 		<Router>
 			<Navbar />
 			<h5>[This is the main page]</h5>
+			<Footer />
 		</Router>
 	);
 }
