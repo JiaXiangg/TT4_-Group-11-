@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Home = ({isLoggedIn,onSubmitSignOut, accountKey, setaccountKey}) =>{
+const Home = ({isLoggedIn,onSubmitSignOut, userData, setUserData}) =>{
 
 	return(
 
