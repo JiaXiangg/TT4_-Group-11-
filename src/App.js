@@ -2,6 +2,9 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
 import { Link } from 'react-router-dom';
+import makeAddTransactionRequest from './components/AddTransaction'
+import AuthService from './components/AuthService'
+import PrivateRoute from './PrivateRouter'
 
 function App(){
 
@@ -52,9 +55,9 @@ function App(){
 
           </div>
         </Router>
-    
 
-{/*       {isLoggedIn ? ( 
+
+{/*       {isLoggedIn ? (
           <UserInformation isLoggedIn = {isLoggedIn} accountkey ={accountKey} setaccountKey={setaccountKey} />
           ) : (
           <p>Please Log in</p> ) }*/}
